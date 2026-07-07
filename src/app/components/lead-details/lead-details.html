@@ -1,0 +1,21 @@
+<div class="details-card">
+
+  <h2>Lead Details</h2>
+
+  <p><strong>Name:</strong> {{ lead.name }}</p>
+
+  <p><strong>Company:</strong> {{ lead.company }}</p>
+
+  <p><strong>Email:</strong> {{ lead.email }}</p>
+
+  <p><strong>Phone:</strong> {{ lead.phone }}</p>
+
+  <hr>
+  <div class="status-actions">
+    <app-lead-status-pill [status]="lead.status">
+    </app-lead-status-pill>
+    <button class="change-status-btn" (click)="changeStatus()"> Change Status</button>
+
+  </div>
+
+</div>

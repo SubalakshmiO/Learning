@@ -1,0 +1,28 @@
+<h1>Exercise 5 - Add New Lead</h1>
+
+<p>
+  This exercise demonstrates Angular Forms by creating a new lead.
+</p>
+
+<app-lead-form
+  (leadAdded)="onLeadAdded($event)">
+</app-lead-form>
+<hr>
+
+<h2>Added Leads</h2>
+
+<div
+  class="lead-preview"
+  *ngFor="let lead of leads">
+
+  <h3>{{ lead.name }}</h3>
+
+  <p>{{ lead.company }}</p>
+
+  <p>{{ lead.email }}</p>
+
+  <p>{{ lead.phone }}</p>
+
+  <p>{{ lead.status }}</p>
+
+</div>

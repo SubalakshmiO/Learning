@@ -1,0 +1,15 @@
+<div class="lead-card" (click)="selectLead()">
+
+  <h3>{{ lead.name }}</h3>
+
+  <p [attr.title]="lead.company"> {{ lead.company }}</p>
+
+  <p [attr.title]="lead.email"> {{ lead.email }}</p>
+
+  <p [attr.title]="lead.phone"> {{ lead.phone }}</p>
+
+  <hr>
+
+  <app-lead-status-pill [status]="lead.status"></app-lead-status-pill>
+
+</div>

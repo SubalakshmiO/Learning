@@ -1,0 +1,49 @@
+<div class="search-box">
+
+  <input
+    #searchInput
+    type="text"
+    placeholder="Search leads..." />
+
+</div>
+
+<!-- Stage Counts (Module 9) -->
+
+
+<div class="lead-container">
+
+  <!-- Left Sidebar -->
+  <div class="lead-sidebar">
+
+    <div
+      class="lead-item"
+      *ngFor="let lead of leads; let i = index"
+      (click)="onLeadSelected(lead)"
+      [class.selected]="selectedLead?.email === lead.email">
+
+      {{ lead.name }}
+
+    </div>
+
+    <div
+      class="empty-state"
+      *ngIf="leads.length === 0">
+
+      No leads yet.
+
+    </div>
+
+  </div>
+
+  <!-- Right Details -->
+  <div class="lead-content">
+
+    <app-lead-details
+      *ngIf="selectedLead"
+      [lead]="selectedLead"
+      (statusChange)="onStatusChanged($event)">
+    </app-lead-details>
+
+  </div>
+
+</div>
