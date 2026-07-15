@@ -1,37 +1,35 @@
-<h1>Exercise 10 - HttpClient</h1>
+<h1> HttpClient & APIs</h1>
 
-<!-- Loading -->
+<!-- Loading State -->
 <div *ngIf="loading">
-  <h3>Loading users...</h3>
+
+  <h3>Loading leads...</h3>
+
 </div>
 
-<!-- Error -->
+<!-- Error State -->
 <div *ngIf="errorMessage">
+
   <h3>{{ errorMessage }}</h3>
+
 </div>
 
-<!-- Success -->
+<!-- API Lead List -->
 <div *ngIf="!loading && !errorMessage">
 
-  <!-- Test POST Button -->
-  <button (click)="createUser()">
-    Test POST Request
-  </button>
-
-  <br><br>
-
-  <!-- User List -->
   <div
     class="user-card"
-    *ngFor="let user of users">
+    *ngFor="let lead of leads">
 
-    <h3>{{ user.name }}</h3>
+    <h3>{{ lead.name }}</h3>
 
-    <p>Email: {{ user.email }}</p>
+    <p>Company: {{ lead.company }}</p>
 
-    <p>Phone: {{ user.phone }}</p>
+    <p>Email: {{ lead.email }}</p>
 
-    <p>Website: {{ user.website }}</p>
+    <p>Phone: {{ lead.phone }}</p>
+
+    <p>Status: {{ lead.status }}</p>
 
   </div>
 

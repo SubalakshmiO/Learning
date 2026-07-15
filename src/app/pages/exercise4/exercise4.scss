@@ -1,0 +1,22 @@
+.crm-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+  width: 100%;
+}
+
+.lead-list-section {
+  width: 355px;
+  flex-shrink: 0;
+}
+
+.pipeline-section {
+  flex: 1;
+  min-width: 0;
+  transform: translateY(-20px);
+}
+
+/* Align Pipeline heading with Search bar */
+.pipeline-section h2 {
+  margin-top: 0;
+}

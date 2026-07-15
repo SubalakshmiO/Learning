@@ -47,10 +47,10 @@ export class LeadService {
     return this.initialLeads;
   }
   addLead(lead: any) {
-
-  this.initialLeads.push(lead);
-
-  this.leadsSubject.next(this.initialLeads);
-
-}
+    this.initialLeads.push(lead);
+    this.leadsSubject.next(this.initialLeads);
+  }
+  getLeadById(id: number) {
+    return this.initialLeads[id - 1];
+  }
 }

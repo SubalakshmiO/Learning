@@ -18,9 +18,14 @@ export class LeadCard {
     status: string;
   };
 
-  @Output() leadSelected = new EventEmitter<any>();
-  selectLead() {
-    this.leadSelected.emit(this.lead);
+  @Input() isSelected: boolean = false;
+
+  // Module 5 - Outputs
+  @Output() selectLead = new EventEmitter<any>();
+  @Output() statusChange = new EventEmitter<string>();
+
+  onSelectLead(): void {
+    this.selectLead.emit(this.lead);
   }
 
 }

@@ -1,0 +1,87 @@
+<div class="form-card">
+
+  <h2>Add Lead - Reactive Form</h2>
+
+  <form [formGroup]="leadForm" (ngSubmit)="onSubmit()">
+
+    <!-- Name -->
+    <div class="form-group">
+      <label>Name</label>
+
+      <input
+        type="text"
+        formControlName="name"
+        placeholder="Enter name">
+
+      @if (leadForm.get('name')?.touched &&
+           leadForm.get('name')?.hasError('required')) {
+        <p class="error">
+          Name is required.
+        </p>
+      }
+    </div>
+
+    <!-- Company -->
+    <div class="form-group">
+      <label>Company</label>
+
+      <input
+        type="text"
+        formControlName="company"
+        placeholder="Enter company">
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label>Email</label>
+
+      <input
+        type="email"
+        formControlName="email"
+        placeholder="Enter email">
+
+      @if (leadForm.get('email')?.touched &&
+           leadForm.get('email')?.hasError('required')) {
+        <p class="error">
+          Email is required.
+        </p>
+      }
+
+      @if (leadForm.get('email')?.touched &&
+           leadForm.get('email')?.hasError('email')) {
+        <p class="error">
+          Please enter a valid email.
+        </p>
+      }
+    </div>
+
+    <!-- Phone -->
+    <div class="form-group">
+      <label>Phone</label>
+
+      <input
+        type="text"
+        formControlName="phone"
+        placeholder="Enter phone number">
+    </div>
+
+    <!-- Status -->
+    <div class="form-group">
+      <label>Status</label>
+
+      <select formControlName="status">
+        <option value="New">New</option>
+        <option value="Contacted">Contacted</option>
+        <option value="Qualified">Qualified</option>
+        <option value="Won">Won</option>
+        <option value="Lost">Lost</option>
+      </select>
+    </div>
+
+    <button type="submit" [disabled]="leadForm.invalid">
+      Add Lead
+    </button>
+
+  </form>
+
+</div>

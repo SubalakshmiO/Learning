@@ -19,5 +19,12 @@ export class Exercise2 {
     phone: '9876543210',
     status: 'New'
   };
+  selectedLead: any = null;
+  onLeadSelected(lead: any): void {
+    this.selectedLead = lead;
+  }
+  onStatusChanged(newStatus: string): void {
+    this.lead.status = newStatus;
+  }
 
 }

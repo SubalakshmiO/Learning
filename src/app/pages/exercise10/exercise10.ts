@@ -1,7 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
-import { ApiService } from '../../services/api';
-import { User } from '../../models/user';
+import { ApiService, ApiLead } from '../../services/api';
 
 @Component({
   selector: 'app-exercise10',
@@ -17,7 +16,7 @@ export class Exercise10 implements OnInit {
 
   private api = inject(ApiService);
 
-  users: User[] = [];
+  leads: ApiLead[] = [];
 
   loading = true;
 
@@ -25,18 +24,20 @@ export class Exercise10 implements OnInit {
 
   ngOnInit(): void {
 
-    this.loadUsers();
+    this.loadLeads();
 
   }
 
-  loadUsers() {
+  loadLeads(): void {
 
-    this.api.getUsers().subscribe({
+    this.loading = true;
+    this.errorMessage = '';
+
+    this.api.getLeads().subscribe({
 
       next: (data) => {
 
-        this.users = data;
-
+        this.leads = data;
         this.loading = false;
 
       },
@@ -45,41 +46,8 @@ export class Exercise10 implements OnInit {
 
         console.error(err);
 
-        this.errorMessage = 'Failed to load users';
-
+        this.errorMessage = 'Failed to load leads';
         this.loading = false;
-
-      }
-
-    });
-
-  }
-
-  createUser() {
-
-    const newUser: User = {
-
-      id: 11,
-      name: 'Suba Lakshmi',
-      email: 'suba@test.com',
-      phone: '9876543210',
-      website: 'mysite.com'
-
-    };
-
-    this.api.addUser(newUser).subscribe({
-
-      next: (result) => {
-
-        console.log('User Created');
-
-        console.log(result);
-
-      },
-
-      error: (err) => {
-
-        console.error(err);
 
       }
 

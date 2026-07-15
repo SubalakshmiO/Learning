@@ -1,0 +1,77 @@
+<div class="pipeline">
+
+  <h2>Lead Pipeline</h2>
+
+  <div *ngIf="stageCounts$ | async as counts" class="stage-counts">
+    <span>New: {{ counts.New }}</span>
+    <span>Contacted: {{ counts.Contacted }}</span>
+    <span>Qualified: {{ counts.Qualified }}</span>
+    <span>Won: {{ counts.Won }}</span>
+    <span>Lost: {{ counts.Lost }}</span>
+  </div>
+
+  <div *ngIf="leads$ | async as leads" class="pipeline-board">
+
+    <div class="pipeline-column">
+
+      <h3>New</h3>
+
+      <div *ngFor="let lead of leads">
+        <div *ngIf="lead.status === 'New'" class="pipeline-lead">
+          {{ lead.name }}
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pipeline-column">
+
+      <h3>Contacted</h3>
+
+      <div *ngFor="let lead of leads">
+        <div *ngIf="lead.status === 'Contacted'" class="pipeline-lead">
+          {{ lead.name }}
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pipeline-column">
+
+      <h3>Qualified</h3>
+
+      <div *ngFor="let lead of leads">
+        <div *ngIf="lead.status === 'Qualified'" class="pipeline-lead">
+          {{ lead.name }}
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pipeline-column">
+
+      <h3>Won</h3>
+
+      <div *ngFor="let lead of leads">
+        <div *ngIf="lead.status === 'Won'" class="pipeline-lead">
+          {{ lead.name }}
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pipeline-column">
+
+      <h3>Lost</h3>
+
+      <div *ngFor="let lead of leads">
+        <div *ngIf="lead.status === 'Lost'" class="pipeline-lead">
+          {{ lead.name }}
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
